@@ -16,12 +16,18 @@
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+        name: "Header"
+    }
 </script>
 
 <style>
+    .navbar-item {
+            background-color: #f2effb !important;
+        }
+    .navbar-item:hover {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+    }
     @media screen and (max-width: 768px) {
         .navbar-menu {
             background-image: none !important;
@@ -31,6 +37,9 @@ export default {
     @media screen and (max-width: 1023px) {
         .navbar-menu {
             background-color: #f2effb !important;
+        }
+        .navbar-item:hover {
+            background-color: rgba(0, 0, 0, 0.05) !important;
         }
     }
 </style>
