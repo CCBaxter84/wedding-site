@@ -2,7 +2,7 @@
   <section class="hero is-primary is-bold is-fullheight">
     <section class="hero-body has-text-primary">
       <section class="container has-text-centered">
-        <section class="notification has-background-primary-light ">
+        <section class="section is-large has-background-primary-light">
           <Header />
         </section>
       </section>
