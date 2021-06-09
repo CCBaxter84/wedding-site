@@ -4,12 +4,12 @@
           <template #start>
             <b-navbar-item id="home" tag="router-link" :to="{ path: '/'}">Home</b-navbar-item>
             <b-navbar-item id="our-story" tag="router-link" :to="{ path: '/our-story'}">Our Story</b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/engagement'}">Engagement</b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/getting-ready'}">Getting Ready</b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/ceremony'}">Ceremony</b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/family'}">Family</b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/couple'}">Couple</b-navbar-item>
-            <b-navbar-item tag="router-link" :to="{ path: '/reception'}">Reception</b-navbar-item>
+            <b-navbar-item id="engagement" tag="router-link" :to="{ path: '/engagement'}">Engagement</b-navbar-item>
+            <b-navbar-item id="getting-ready" tag="router-link" :to="{ path: '/getting-ready'}">Getting Ready</b-navbar-item>
+            <b-navbar-item id="ceremony" tag="router-link" :to="{ path: '/ceremony'}">Ceremony</b-navbar-item>
+            <b-navbar-item id="family" tag="router-link" :to="{ path: '/family'}">Family</b-navbar-item>
+            <b-navbar-item id="couple" tag="router-link" :to="{ path: '/couple'}">Couple</b-navbar-item>
+            <b-navbar-item id="reception" tag="router-link" :to="{ path: '/reception'}">Reception</b-navbar-item>
           </template>
       </b-navbar>
   </header>
