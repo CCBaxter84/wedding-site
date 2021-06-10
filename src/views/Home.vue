@@ -1,5 +1,9 @@
 <template>
-  <h1 class="title has-text-primary is-1">Home</h1>
+  <main class="mx-6">
+    <article class="container my-6">
+      <h1 class="title has-text-primary is-1 mb-6">Home</h1>
+    </article>
+  </main>
 </template>
 
 <script>
