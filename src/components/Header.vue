@@ -1,5 +1,5 @@
 <template>
-  <header class="has-background-primary-light">
+  <header>
       <b-navbar centered>
           <template #start>
             <b-navbar-item id="home" tag="router-link" :to="{ path: '/'}">Home</b-navbar-item>
@@ -22,12 +22,20 @@
 </script>
 
 <style>
-    .navbar-item {
-            background-color: #f2effb !important;
-        }
+    .navbar-start {
+        border-radius: .75rem !important;
+    }
+
+    .navbar-item:focus {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+        border-radius: .75rem !important;
+    }
+
     .navbar-item:hover {
         background-color: rgba(0, 0, 0, 0.05) !important;
+        border-radius: .75rem !important;
     }
+
     @media screen and (max-width: 768px) {
         .navbar-menu {
             background-image: none !important;
@@ -36,8 +44,10 @@
 
     @media screen and (max-width: 1023px) {
         .navbar-menu {
-            background-color: #f2effb !important;
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            border-radius: .75rem !important;
         }
+        
         .navbar-item:hover {
             background-color: rgba(0, 0, 0, 0.05) !important;
         }

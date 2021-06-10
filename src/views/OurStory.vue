@@ -1,7 +1,7 @@
 <template>
   <main class="mx-6">
-    <h1 class="title has-text-primary is-1">Our Story</h1>
     <article class="container my-6">
+      <h1 class="title has-text-primary is-1 mb-6">Our Story</h1>
       <h3 class="title has-text-primary is-3">{{ item.title }}</h3>
       <p class="is-size-5">{{ item.text }}</p>
     </article>

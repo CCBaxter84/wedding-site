@@ -4,7 +4,7 @@
   >
     <section class="hero-body ">
       <section class="container">
-        <section class="section is-small has-background-primary-light">
+        <section class="section is-small ">
           <Header />
           <router-view />
         </section>
@@ -28,6 +28,7 @@
   .section {
     border-radius: 0.75rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
     position: relative;
   }
   .section:before {
@@ -35,8 +36,10 @@
     backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
     border-radius: 0.75rem;
     content: '';
-    height: 100%;
+    height: 500%;
+    margin-left: -50rem;
+    margin-top: -50rem;
     position: absolute;
-    width: 100%;
+    width: 200%;
   }
 </style>
