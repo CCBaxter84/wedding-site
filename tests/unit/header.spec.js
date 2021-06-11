@@ -9,19 +9,15 @@ describe("Header.vue", () => {
     });
     
     test("Renders nav bar", () => {
-        expect(wrapper.html().includes("Home")).toBe(true);
-        expect(wrapper.html().includes("Our Story")).toBe(true);
-        expect(wrapper.html().includes("Engagement")).toBe(true);
-        expect(wrapper.html().includes("Getting Ready")).toBe(true);
-        expect(wrapper.html().includes("Ceremony")).toBe(true);
-        expect(wrapper.html().includes("Couple")).toBe(true);
-        expect(wrapper.html().includes("Family")).toBe(true);
-        expect(wrapper.html().includes("Reception")).toBe(true);
+        const titles = ["Home", "Our Story", "Engagement", "Getting Ready", "Ceremony", "Couple", "Family", "Reception"];
+        titles.forEach(title => {
+            expect(wrapper.html().includes(title)).toBe(true);
+        });
     }); 
 
     test("Clicking on navlinks redirects to appropriate page", async () => {
         const routes = ["/", "/our-story", "/engagement", "/getting-ready", "/ceremony", "/couple", "/family", "/reception"];
-        const testNavLinks = async function(page) {
+        const testNavLinks = async function(wrapper, page) {
             await wrapper.find("#" + page.slice(1)).trigger("click");
             expect(wrapper.vm.$route.path).toBe(page);
         }
@@ -29,7 +25,7 @@ describe("Header.vue", () => {
         expect(wrapper.vm.$route.path).toBe("/");
         for (let i = 1; i < routes.length; i++) {
             let route = routes[i];
-            await testNavLinks(route);
+            await testNavLinks(wrapper, route);
         }
     });
 });
