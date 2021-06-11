@@ -43,5 +43,10 @@
     width: 200%;
   }
 
-  /* Need to add mobile styling for smartphones*/
+  @media screen and (max-width: 415px){
+      .section:before {
+        margin-left: -20rem;
+        margin-top: -20rem;
+      }
+  }
 </style>

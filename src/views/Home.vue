@@ -1,17 +1,12 @@
 <template>
   <main class="mx-6">
-    <article class="container my-6">
-      <h1 class="title has-text-primary is-1 mb-6">Home</h1>
-    </article>
+    <Title title="Home"/>
   </main>
 </template>
 
 <script>
+  import Title from '@/components/Title.vue';
   export default {
-
+    components: { Title }
   }
 </script>
-
-<style>
-
-</style>
