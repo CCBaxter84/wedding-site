@@ -1,10 +1,10 @@
 <template>
   <section 
-    class="hero is-primary is-bold is-fullheight has-text-primary has-text-centered"
+    class='hero is-primary is-bold is-fullheight has-text-primary has-text-centered'
   >
-    <section class="hero-body ">
-      <section class="container">
-        <section class="section is-small ">
+    <section class='hero-body'>
+      <section class='container'>
+        <section class='section is-small'>
           <Header />
           <router-view />
         </section>
@@ -14,10 +14,10 @@
 </template>
 
 <script>
-  import Header from "@/components/Header";
+  import Header from '@/components/Header'
 
   export default {
-    name: "App",
+    name: 'App',
     components: { 
       Header
     }
@@ -42,7 +42,7 @@
     position: absolute;
     width: 200%;
   }
-
+  /* Mobile Device Styling */
   @media screen and (max-width: 415px){
       .section:before {
         margin-left: -20rem;

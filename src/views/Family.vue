@@ -1,6 +1,6 @@
 <template>
   <main class='mx-6'>
-    <Title title='Home'/>
+    <Title title='Family'/>
   </main>
 </template>
 
@@ -8,7 +8,7 @@
   import Title from '@/components/Title.vue'
 
   export default {
-    name: 'Home',
+    name: 'Family',
     components: { Title }
   }
 </script>
