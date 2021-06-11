@@ -1,19 +1,19 @@
-import { createLocalVue, mount } from "@vue/test-utils";
-import Buefy from "buefy";
+import { createLocalVue, mount } from '@vue/test-utils'
+import Buefy from 'buefy'
 
 export const titles = ['Home', 'Our Story', 'Engagement', 'Getting Ready', 'Ceremony', 'Couple', 'Family', 'Reception']
 export const routes = ['/', '/our-story', '/engagement', '/getting-ready', '/ceremony', '/couple', '/family', '/reception']
 
 export const createWrapper = (component, options = {}) => {
-    const localVue = createLocalVue();
+    const localVue = createLocalVue()
     localVue.use(Buefy, {
-        defaultIconPack: "fa"
-    });
+        defaultIconPack: 'fa'
+    })
     const wrapper = mount(component, {
         localVue,
         ...options
-    });
-    return wrapper;
+    })
+    return wrapper
 }
 
 export const clickNavLink = async function(wrapper, page) {
