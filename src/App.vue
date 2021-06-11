@@ -42,4 +42,6 @@
     position: absolute;
     width: 200%;
   }
+
+  /* Need to add mobile styling for smartphones*/
 </style>
