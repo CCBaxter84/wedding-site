@@ -1,0 +1,9 @@
+type Link {
+    url: String!
+    description: String!
+    album: String!
+}
+
+type Query {
+    getAllAlbumLinks(album: String!): [Link!]!
+}
