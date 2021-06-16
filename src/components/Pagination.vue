@@ -5,22 +5,22 @@
         <p class='is-size-5'>{{ item.text }}</p>
         </article>
         <b-pagination
-        :current.sync="current"
-        :total="total"
-        v-model="current"
-        :range-before="rangeBefore"
-        :range-after="rangeAfter"
-        :order="order"
-        :size="size"
-        :simple="isSimple"
-        :rounded="isRounded"
-        :per-page="perPage"
-        :icon-prev="prevIcon"
-        :icon-next="nextIcon"
-        aria-next-label='Next page'
-        aria-previous-label='Previous page'
-        aria-page-label='Page'
-        aria-current-label='Current page'
+          :current.sync="current"
+          :total="total"
+          v-model="current"
+          :range-before="rangeBefore"
+          :range-after="rangeAfter"
+          :order="order"
+          :size="size"
+          :simple="isSimple"
+          :rounded="isRounded"
+          :per-page="perPage"
+          :icon-prev="prevIcon"
+          :icon-next="nextIcon"
+          aria-next-label='Next page'
+          aria-previous-label='Previous page'
+          aria-page-label='Page'
+          aria-current-label='Current page'
         />
     </section>
 </template>
