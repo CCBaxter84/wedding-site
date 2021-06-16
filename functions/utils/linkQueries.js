@@ -1,4 +1,4 @@
-const GET_LINKs = `query {
+const GET_LINKS = `query {
     getAllAlbumLinks(_size: 135, album: "Ceremony") {
       data {
         _id,
