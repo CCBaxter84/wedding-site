@@ -14,12 +14,21 @@
 </template>
 
 <script>
-  import Header from '@/components/Header'
+  import axios from 'axios';
+  import Header from '@/components/Header';
 
   export default {
     name: 'App',
     components: { 
       Header
+    },
+    async created() {
+      try {
+        const { data } = await axios.get('/api/couple');
+        console.log(data);
+      } catch(error) {
+        console.log(error);
+      }
     }
   }
 </script>

@@ -1,10 +1,10 @@
 [build]
     functions = "functions"
 [[redirects]]
-    from = "/api/getCeremonyLinks"
+    from = "/api/ceremony"
     to = "/.netlify/functions/getCeremonyLinks"
     status = 200
 [[redirects]]
-    from = "/api/getCoupleLinks"
+    from = "/api/couple"
     to = "/.netlify/functions/getCoupleLinks"
     status = 200
