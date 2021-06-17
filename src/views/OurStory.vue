@@ -1,6 +1,10 @@
 <template>
   <main class='mx-6'>
     <Title title='Our Story'/>
+    <article class='container my-6'>
+      <h3 class='title has-text-primary is-3'>{{ item.title }}</h3>
+      <p class='is-size-5'>{{ item.text }}</p>
+    </article>
     <Pagination items='items'/>
   </main>
 </template>
@@ -15,6 +19,12 @@
     data() {
       return {
         items: []
+      }
+    },
+    computed: {
+      item() {
+        const index = this.current - 1;
+        return this.items[index];
       }
     },
     created() {
