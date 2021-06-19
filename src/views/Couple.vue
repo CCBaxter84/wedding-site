@@ -1,14 +1,12 @@
 <template>
-  <main class='mx-6'>
-    <Title title='Couple'/>
-  </main>
+  <AlbumWrapper name='Couple'/>
 </template>
 
 <script>
-  import Title from '@/components/Title.vue'
+  import AlbumWrapper from '@/components/AlbumWrapper.vue';
 
   export default {
     name: 'Couple',
-    components: { Title }
+    components: { AlbumWrapper }
   }
 </script>

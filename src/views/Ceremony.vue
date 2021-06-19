@@ -1,16 +1,12 @@
 <template>
-  <main class='mx-6'>
-    <Title title='Ceremony'/>
-    <Pagination />
-  </main>
+  <AlbumWrapper name='Ceremony'/>
 </template>
 
 <script>
-  import Title from '@/components/Title.vue';
-  import Pagination from '@/components/Pagination.vue';
+  import AlbumWrapper from '@/components/AlbumWrapper.vue';
 
   export default {
     name: 'Ceremony',
-    components: { Title, Pagination }
+    components: { AlbumWrapper }
   }
 </script>

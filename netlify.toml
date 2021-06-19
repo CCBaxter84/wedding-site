@@ -8,3 +8,19 @@
     from = "/api/couple"
     to = "/.netlify/functions/getCoupleLinks"
     status = 200
+[[redirects]]
+    from = "/api/engagement"
+    to = "/.netlify/functions/getEngagementLinks"
+    status = 200
+[[redirects]]
+    from = "/api/getting-ready"
+    to = "/.netlify/functions/getGettingReadyLinks"
+    status = 200
+[[redirects]]
+    from = "/api/family"
+    to = "/.netlify/functions/getFamilyLinks"
+    status = 200
+[[redirects]]
+    from = "/api/reception"
+    to = "/.netlify/functions/getReceptionLinks"
+    status = 200

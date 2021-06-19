@@ -14,21 +14,12 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import Header from '@/components/Header';
 
   export default {
     name: 'App',
     components: { 
       Header
-    },
-    async created() {
-      try {
-        const { data } = await axios.get('/api/couple');
-        console.log(data);
-      } catch(error) {
-        console.log(error);
-      }
     }
   }
 </script>
@@ -50,6 +41,10 @@
     margin-top: -50rem;
     position: absolute;
     width: 200%;
+  }
+  img {
+    max-height: 700px;
+    object-fit: contain !important;
   }
   /* Mobile Device Styling */
   @media screen and (max-width: 415px){

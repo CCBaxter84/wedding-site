@@ -3,13 +3,14 @@
       <article class='container my-6'>
         <h3 class='title has-text-primary is-3'>{{ item.title }}</h3>
         <p class='is-size-5'>{{ item.text }}</p>
-        <figure class="image is-128x128 ">
+        <div class="mt-6 is-flex is-justify-content-center">
           <b-image 
             :src='item.photo'
+            :srcset="sourceSet"
             :alt='item.description'
-            :ratio='orientation'
           />
-        </figure>
+        </div>
+
       </article>
       <b-pagination
         :items="items"
@@ -35,6 +36,7 @@
 
 <script>
   export default {
+    name: 'Pagination',
     data() {
       return {
         items: [],
@@ -55,6 +57,9 @@
       item() {
         const index = this.current - 1;
         return this.items[index];
+      },
+      sourceSet() {
+        return `${this.item.photo} 0.5x`
       },
       orientation() {
         const isLandscape = this.item.orientation === 'landscape';
