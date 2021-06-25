@@ -13,7 +13,7 @@ const GET_CEREMONY_LINKS = makeGetQuery("Ceremony");
 const GET_COUPLE_LINKS = makeGetQuery("Couple");
 const GET_ENGAGEMENT_LINKS = makeGetQuery("Engagement");
 const GET_FAMILY_LINKS = makeGetQuery("Family");
-const GET_GETTING_READY_LINKS = makeGetQuery("GettingRead");
+const GET_GETTING_READY_LINKS = makeGetQuery("GettingReady");
 const GET_RECEPTION_LINKS = makeGetQuery("Reception");
 
 module.exports = {
