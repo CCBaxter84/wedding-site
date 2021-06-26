@@ -1,5 +1,5 @@
 <template>
-  <main class='mx-6'>
+  <main class='my-6 mx-3'>
     <Title title='Our Story'/>
     <Pagination />
   </main>

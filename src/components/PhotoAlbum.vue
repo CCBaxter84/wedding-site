@@ -1,7 +1,7 @@
 <template>
     <section>
         <article class='container my-5'>
-            <div class="mt-3 is-flex is-justify-content-center" @click="redirectToPhoto">
+            <div class="mt-3 is-flex is-justify-content-center is-hoverable" @click="redirectToPhoto">
                 <b-image 
                     v-if="!isFetching"
                     :src="item.url"
@@ -69,8 +69,22 @@ export default {
     },
     methods: {
         redirectToPhoto() {
+            localStorage.setItem('last-page', this.current);
             window.location.href = this.item.url;
         }
+    },
+    mounted() {
+      const lastPage = Number(localStorage.getItem('last-page'));
+      if (lastPage) {
+        this.current = lastPage;
+        localStorage.clear();
+      } 
     }
 }
 </script>
+
+<style scoped>
+  figure:hover {
+    cursor: pointer;
+  }
+</style>
