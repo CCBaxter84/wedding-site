@@ -33,6 +33,7 @@
 </template>
 
 <script>
+  import { cacheLastPage } from '@/helpers';
   export default {
     name: 'Pagination',
     data() {
@@ -106,11 +107,7 @@
       ]
     },
     mounted() {
-      const lastPage = Number(localStorage.getItem('last-page'));
-      if (lastPage) {
-        this.current = lastPage;
-        localStorage.clear();
-      } 
+      cacheLastPage(this);
     }
   }
 </script>

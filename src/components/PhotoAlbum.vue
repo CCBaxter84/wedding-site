@@ -34,53 +34,50 @@
 </template>
 
 <script>
-export default {
-    name: 'PhotoAlbum',
-    props: ['items', 'isFetching'],
-    data() {
-      return {
-        current: 1,
-        perPage: 1,
-        rangeBefore: 3,
-        rangeAfter: 3,
-        order: 'is-centered',
-        size: '',
-        isSimple: false,
-        isRounded: false,
-        prevIcon: 'chevron-left',
-        nextIcon: 'chevron-right'
-      }
-    },
-    computed: {
-        total() {
-            return this.items ? this.items.length : 0;
+    import { cacheLastPage } from '@/helpers';
+    export default {
+        name: 'PhotoAlbum',
+        props: ['items', 'isFetching'],
+        data() {
+        return {
+            current: 1,
+            perPage: 1,
+            rangeBefore: 3,
+            rangeAfter: 3,
+            order: 'is-centered',
+            size: '',
+            isSimple: false,
+            isRounded: false,
+            prevIcon: 'chevron-left',
+            nextIcon: 'chevron-right'
+        }
         },
-        item() {
-            if (this.items) {
-                const index = this.current - 1;
-                return this.items[index];
-            } else {
-                return {
-                    _id: '',
-                    url: ''
+        computed: {
+            total() {
+                return this.items ? this.items.length : 0;
+            },
+            item() {
+                if (this.items) {
+                    const index = this.current - 1;
+                    return this.items[index];
+                } else {
+                    return {
+                        _id: '',
+                        url: ''
+                    }
                 }
             }
+        },
+        methods: {
+            redirectToPhoto() {
+                localStorage.setItem('last-page', this.current);
+                window.location.href = this.item.url;
+            }
+        },
+        mounted() {
+            cacheLastPage(this);
         }
-    },
-    methods: {
-        redirectToPhoto() {
-            localStorage.setItem('last-page', this.current);
-            window.location.href = this.item.url;
-        }
-    },
-    mounted() {
-      const lastPage = Number(localStorage.getItem('last-page'));
-      if (lastPage) {
-        this.current = lastPage;
-        localStorage.clear();
-      } 
     }
-}
 </script>
 
 <style scoped>
