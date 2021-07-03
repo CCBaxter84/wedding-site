@@ -7,6 +7,7 @@
             :src='item.url'
             :srcset="sourceSet"
             :alt='item.description'
+            class="img-load"
           />
         </div>
         <p class='is-size-5'>{{ item.text }}</p>
@@ -34,6 +35,7 @@
 
 <script>
   import { cacheLastPage } from '@/helpers';
+  
   export default {
     name: 'Pagination',
     data() {

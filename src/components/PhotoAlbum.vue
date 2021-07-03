@@ -2,12 +2,12 @@
     <section>
         <article class='container my-5'>
             <div class="mt-3 is-flex is-justify-content-center is-hoverable" @click="redirectToPhoto">
+                <Loading v-if="isFetching"/>
                 <b-image 
-                    v-if="!isFetching"
+                    v-else
                     :src="item.url"
-                    :alt='item.description'
-                    class='image'
-                    
+                    :alt="item.description"
+                    class="image img-load"
                 />
             </div>
         </article>
@@ -35,8 +35,11 @@
 
 <script>
     import { cacheLastPage } from '@/helpers';
+    import Loading from '@/components/Loading';
+
     export default {
         name: 'PhotoAlbum',
+        components: { Loading },
         props: ['items', 'isFetching'],
         data() {
         return {
@@ -49,7 +52,7 @@
             isSimple: false,
             isRounded: false,
             prevIcon: 'chevron-left',
-            nextIcon: 'chevron-right'
+            nextIcon: 'chevron-right',
         }
         },
         computed: {
@@ -81,7 +84,7 @@
 </script>
 
 <style scoped>
-  figure:hover {
+    figure:hover {
     cursor: pointer;
   }
 </style>

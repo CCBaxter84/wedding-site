@@ -18,9 +18,7 @@
 
   export default {
     name: 'App',
-    components: { 
-      Header
-    }
+    components: { Header }
   }
 </script>
 
@@ -31,6 +29,7 @@
     overflow: hidden;
     position: relative;
   }
+
   .section:before {
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
@@ -42,9 +41,28 @@
     position: absolute;
     width: 200%;
   }
+
   img {
     max-height: 700px;
     object-fit: contain !important;
+  }
+
+  .img-load {
+      animation: slide-in 300ms ease-in-out;
+  }
+
+  .loading {
+    height: 700px;
+  }
+
+  /* Animation for photo albums */
+  @keyframes slide-in {
+      0% {
+          transform: translateX(150%);
+      }
+      100% {
+          transform: translateX(0);
+      }
   }
   /* Mobile Device Styling */
   @media screen and (max-width: 415px){
