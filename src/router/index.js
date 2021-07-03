@@ -8,6 +8,7 @@ import Engagement from '@/views/Engagement'
 import Family from '@/views/Family'
 import GettingReady from '@/views/GettingReady'
 import Reception from '@/views/Reception'
+import Video from '@/views/Video'
 
 Vue.use(VueRouter)
 
@@ -19,7 +20,8 @@ const routes = [
   { path: '/engagement', name: 'Engagement', component: Engagement },
   { path: '/family', name: 'Family', component: Family },
   { path: '/getting-ready', name: 'GettingReady', component: GettingReady },
-  { path: '/reception', name: 'Reception', component: Reception }
+  { path: '/reception', name: 'Reception', component: Reception },
+  { path: '/video', name: 'Video', component: Video }
 ]
 
 const router = new VueRouter({

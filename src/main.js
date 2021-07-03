@@ -6,9 +6,8 @@ import router from './router';
 import store from './store';
 
 Vue.config.productionTip = false;
-Vue.use(Buefy, {
-  defaultIconPack: 'fas'});
-
+Vue.use(Buefy, { defaultIconPack: 'fas' });
+ 
 new Vue({
   router,
   store,
