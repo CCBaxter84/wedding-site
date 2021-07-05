@@ -1,6 +1,6 @@
 const makeGetQuery = function(name) {
   return `query {
-    getAllAlbumLinks(_size: 180, album: "${name}") {
+    getAllAlbumLinks(_size: 600, album: "${name}") {
       data {
         _id,
         url,

@@ -24,7 +24,13 @@
       try {
         this.isFetching = true;
         const { data } = await axios.get(`/api/${this.name}`);
-        this.items = data;
+        if (this.name === 'Puppies') {
+          this.items = data.filter(item => {
+              return item.description.includes('Nova') || item.description.includes('Revan') || item.description.includes('Puppies');
+            });
+        } else {
+          this.items = data;
+        }
         this.isFetching = false;
       } catch(error) {
         console.log(error);

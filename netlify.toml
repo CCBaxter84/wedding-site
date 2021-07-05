@@ -32,3 +32,7 @@
     from = "/api/Home"
     to = "/.netlify/functions/getHomeVideoLink"
     status = 200
+[[redirects]]
+    from = "/api/Puppies"
+    to = "/.netlify/functions/getAllLinks"
+    status = 200

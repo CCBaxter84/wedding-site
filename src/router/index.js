@@ -9,6 +9,7 @@ import Family from '@/views/Family'
 import GettingReady from '@/views/GettingReady'
 import Reception from '@/views/Reception'
 import Videos from '@/views/Videos'
+import Puppies from '@/views/Puppies'
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,8 @@ const routes = [
   { path: '/family', name: 'Family', component: Family },
   { path: '/getting-ready', name: 'GettingReady', component: GettingReady },
   { path: '/reception', name: 'Reception', component: Reception },
-  { path: '/videos', name: 'Videos', component: Videos }
+  { path: '/videos', name: 'Videos', component: Videos },
+  { path: '/puppies', name: 'Puppies', component: Puppies }
 ]
 
 const router = new VueRouter({

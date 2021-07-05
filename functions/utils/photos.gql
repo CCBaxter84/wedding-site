@@ -7,4 +7,5 @@ type Link {
 type Query {
     getAllAlbumLinks(album: String!): [Link!]!
     getLink(album: String!, description: String!): Link!
+    getAllLinks: [Link!]!
 }
