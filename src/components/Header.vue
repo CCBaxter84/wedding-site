@@ -10,7 +10,7 @@
             <b-navbar-item id="family" tag="router-link" :to="{ path: '/family' }">Family</b-navbar-item>
             <b-navbar-item id="couple" tag="router-link" :to="{ path: '/couple' }">Couple</b-navbar-item>
             <b-navbar-item id="reception" tag="router-link" :to="{ path: '/reception' }">Reception</b-navbar-item>
-            <b-navbar-item id="video" tag="router-link" :to="{ path: '/video' }">Video</b-navbar-item>
+            <b-navbar-item id="videos" tag="router-link" :to="{ path: '/videos' }">Videos</b-navbar-item>
           </template>
       </b-navbar>
   </header>

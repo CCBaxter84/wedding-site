@@ -10,7 +10,9 @@
             class="img-load"
           />
         </div>
-        <p class='is-size-5'>{{ item.text }}</p>
+        <div class="margin">
+          <p class="is-size-5">{{ item.text }}</p>
+        </div>
       </article>
       <b-pagination
         :items="items"
@@ -118,4 +120,16 @@
   figure:hover {
     cursor: pointer;
   }
+  .margin {
+      margin: 0 auto;
+      width: 75%;
+  }
+
+  /* Mobile Device Styling */
+  @media screen and (max-width: 1024px){
+    .margin {
+        width: 100%;
+    }
+  }
+    
 </style>

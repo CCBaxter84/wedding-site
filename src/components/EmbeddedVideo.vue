@@ -1,30 +1,27 @@
 <template>
-    <main class="m-3">
-        <Title title="Video"/>
-        <iframe 
+    <section class="is-flex-direction-column is-full-width" >
+        <h3 class="title has-text-primary is-3 mb-4">{{ item.description }}</h3>
+        <iframe
             class="video" 
-            src="https://www.youtube.com/embed/nJ81DFmgHdU" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            :src="item.url" 
+            frameborder="0"
+            allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
         />
-    </main>
+    </section>
 </template>
 
 <script>
-    import Title from '@/components/Title.vue';
-
     export default {
-        name: 'Video',
-        components: { Title }
+        name: 'EmbeddedVideo',
+        props: ['item']
     }
 </script>
 
-<style scoped>
+<style>
     .video {
-        position: relative;
         height: 30rem;
+        position: relative;
         width: 75%;
     }
     /* Mobile Device Styling */

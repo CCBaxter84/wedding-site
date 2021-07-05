@@ -3,7 +3,8 @@ const makeGetQuery = function(name) {
     getAllAlbumLinks(_size: 180, album: "${name}") {
       data {
         _id,
-        url
+        url,
+        description
       }
     }
   }`
@@ -15,6 +16,8 @@ const GET_ENGAGEMENT_LINKS = makeGetQuery("Engagement");
 const GET_FAMILY_LINKS = makeGetQuery("Family");
 const GET_GETTING_READY_LINKS = makeGetQuery("GettingReady");
 const GET_RECEPTION_LINKS = makeGetQuery("Reception");
+const GET_VIDEOS_LINKS = makeGetQuery("Videos");
+const ERROR_MESSAGE = 'Something went wrong'
 
 module.exports = {
     GET_CEREMONY_LINKS,
@@ -23,4 +26,6 @@ module.exports = {
     GET_FAMILY_LINKS,
     GET_GETTING_READY_LINKS,
     GET_RECEPTION_LINKS,
+    GET_VIDEOS_LINKS,
+    ERROR_MESSAGE
 }

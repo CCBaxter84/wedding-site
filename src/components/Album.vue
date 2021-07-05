@@ -1,13 +1,17 @@
 <template>
     <section>
-        <article class='container my-5'>
-            <div class="mt-3 is-flex is-justify-content-center is-hoverable" @click="redirectToPhoto">
+        <article class="container my-5">
+            <div class="mt-3 is-flex is-justify-content-center is-hoverable" @click="redirectToSource">
                 <Loading v-if="isFetching"/>
                 <b-image 
-                    v-else
+                    v-if="!isFetching && !isVideo"
                     :src="item.url"
                     :alt="item.description"
                     class="image img-load"
+                />
+                <EmbeddedVideo 
+                    v-if="!isFetching && isVideo"
+                    :item="item"
                 />
             </div>
         </article>
@@ -36,24 +40,26 @@
 <script>
     import { cacheLastPage } from '@/helpers';
     import Loading from '@/components/Loading';
+    import EmbeddedVideo from '@/components/EmbeddedVideo';
 
     export default {
-        name: 'PhotoAlbum',
-        components: { Loading },
+        name: 'Album',
+        components: { Loading, EmbeddedVideo },
         props: ['items', 'isFetching'],
         data() {
-        return {
-            current: 1,
-            perPage: 1,
-            rangeBefore: 3,
-            rangeAfter: 3,
-            order: 'is-centered',
-            size: '',
-            isSimple: false,
-            isRounded: false,
-            prevIcon: 'chevron-left',
-            nextIcon: 'chevron-right',
-        }
+            return {
+                current: 1,
+                perPage: 1,
+                rangeBefore: 3,
+                rangeAfter: 3,
+                order: 'is-centered',
+                size: '',
+                isSimple: false,
+                isRounded: false,
+                prevIcon: 'chevron-left',
+                nextIcon: 'chevron-right',
+                isVideo: false
+            }
         },
         computed: {
             total() {
@@ -71,8 +77,14 @@
                 }
             }
         },
+        watch: {
+            item: function(value) {
+                const { url } = value;
+                url.includes('Videos') ? this.isVideo = true : this.isVideo = false;
+            }
+        },  
         methods: {
-            redirectToPhoto() {
+            redirectToSource() {
                 localStorage.setItem('last-page', this.current);
                 window.location.href = this.item.url;
             }
@@ -85,6 +97,6 @@
 
 <style scoped>
     figure:hover {
-    cursor: pointer;
-  }
+        cursor: pointer;
+    }
 </style>

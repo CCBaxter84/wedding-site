@@ -1,26 +1,34 @@
 [build]
     functions = "functions"
 [[redirects]]
-    from = "/api/ceremony"
+    from = "/api/Ceremony"
     to = "/.netlify/functions/getCeremonyLinks"
     status = 200
 [[redirects]]
-    from = "/api/couple"
+    from = "/api/Couple"
     to = "/.netlify/functions/getCoupleLinks"
     status = 200
 [[redirects]]
-    from = "/api/engagement"
+    from = "/api/Engagement"
     to = "/.netlify/functions/getEngagementLinks"
     status = 200
 [[redirects]]
-    from = "/api/getting-ready"
+    from = "/api/GettingReady"
     to = "/.netlify/functions/getGettingReadyLinks"
     status = 200
 [[redirects]]
-    from = "/api/family"
+    from = "/api/Family"
     to = "/.netlify/functions/getFamilyLinks"
     status = 200
 [[redirects]]
-    from = "/api/reception"
+    from = "/api/Reception"
     to = "/.netlify/functions/getReceptionLinks"
+    status = 200
+[[redirects]]
+    from = "/api/Videos"
+    to = "/.netlify/functions/getVideosLinks"
+    status = 200
+[[redirects]]
+    from = "/api/Home"
+    to = "/.netlify/functions/getHomeVideoLink"
     status = 200

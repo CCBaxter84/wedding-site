@@ -55,13 +55,17 @@
     height: 700px;
   }
 
+  .is-full-width {
+    width: 100%;
+  }
+
   /* Animation for photo albums */
   @keyframes slide-in {
       0% {
-          transform: translateX(150%);
+          opacity: 0;
       }
       100% {
-          transform: translateX(0);
+          opacity: 1;
       }
   }
   /* Mobile Device Styling */
