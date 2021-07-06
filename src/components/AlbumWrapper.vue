@@ -23,8 +23,11 @@
     async created() {
       try {
         this.isFetching = true;
-        const formattedName = this.name.replace(/\s/g, "");
-        const { data } = await axios.get(`/api/${formattedName}`);
+        let formattedName = this.name.replace(/\s/g, "");
+        if (this.name === 'Puppies') {
+          formattedName = 'All';
+        }
+        const { data } = await axios.get(`/.netlify/functions/get${formattedName}Links`);
         if (this.name === 'Puppies') {
           this.items = data.filter(item => {
               return item.description.includes('Nova') || item.description.includes('Revan') || item.description.includes('Puppies');

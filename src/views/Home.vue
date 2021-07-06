@@ -33,7 +33,7 @@
     },
     async created() {
       this.isLoading = true;
-      const { data } = await axios.get('/api/Home');
+      const { data } = await axios.get('/api/home');
       this.item.url = data.getLink.url;
       this.isLoading = false;
     }
