@@ -23,7 +23,8 @@
     async created() {
       try {
         this.isFetching = true;
-        const { data } = await axios.get(`/api/${this.name}`);
+        const formattedName = this.name.replace(/\s/g, "");
+        const { data } = await axios.get(`/api/${formattedName}`);
         if (this.name === 'Puppies') {
           this.items = data.filter(item => {
               return item.description.includes('Nova') || item.description.includes('Revan') || item.description.includes('Puppies');

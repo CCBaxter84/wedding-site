@@ -1,5 +1,5 @@
 <template>
-  <AlbumWrapper name='GettingReady'/>
+  <AlbumWrapper name='Getting Ready'/>
 </template>
 
 <script>
