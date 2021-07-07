@@ -27,7 +27,7 @@
         if (this.name === 'Puppies') {
           formattedName = 'All';
         }
-        const { data } = await axios.get(`https://keen-liskov-5a1fe3.netlify.app/.netlify/functions/get${formattedName}Links`);
+        const { data } = await axios.get(`/.netlify/functions/get${formattedName}Links`);
         if (this.name === 'Puppies') {
           this.items = data.filter(item => {
               return item.description.includes('Nova') || item.description.includes('Revan') || item.description.includes('Puppies');
