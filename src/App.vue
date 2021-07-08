@@ -3,7 +3,7 @@
     class='hero is-primary is-bold is-fullheight has-text-primary has-text-centered'
   >
     <section class='hero-body'>
-      <section class='container'>
+      <section class='container is-fullwidth'>
         <section class='section is-small'>
           <Header />
           <router-view />

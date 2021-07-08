@@ -1,5 +1,5 @@
 <template>
-  <main class="mx-6">
+  <main :class="margin">
     <Title title="Welcome"/>
      <article class="container my-5">
        <div class="mt-3 is-flex is-justify-content-center">
@@ -28,14 +28,31 @@
         item: {
           description: "The Clarks' Wedding Website"
         },
-        isLoading: false
+        isLoading: false,
+        screenSize: []
+      }
+    },
+    computed: {
+      margin() {
+        return this.screenSize[0] < 415 ? "mx-1" : "mx-4";
       }
     },
     async created() {
       this.isLoading = true;
-      const { data } = await axios.get('/api/home');
+      const { data } = await axios.get("/api/home");
       this.item.url = data.getLink.url;
       this.isLoading = false;
+    },
+    mounted() {
+      window.addEventListener("resize", this.handleResize);
+    },
+    unmounted() {
+      window.removeEventListener("resize", this.handleResize);
+    },
+    methods: {
+      handleResize() {
+        this.screenSize = [window.innerWidth, window.innerHeight];
+      }
     }
   }
 </script>
