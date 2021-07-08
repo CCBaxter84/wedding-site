@@ -1,5 +1,5 @@
 <template>
-    <section class="is-flex-direction-column is-full-width" >
+    <section class="is-flex-direction-column is-full-width " >
         <h3 class="title has-text-primary is-3 mb-4">{{ item.description }}</h3>
         <iframe
             class="video" 
@@ -20,14 +20,15 @@
 
 <style>
     .video {
-        height: 30rem;
+        max-height: 100%;
         position: relative;
         width: 75%;
     }
     /* Mobile Device Styling */
-    @media screen and (max-width: 1024px){
+    @media screen and (max-width: 1020px){
         .video {
-            width: 100%;
+            max-height: 100%;
+            max-width: 100%;
         }
     }
     @media screen and (max-width: 770px){
@@ -35,11 +36,18 @@
             height: 20rem;
         }
     }
-    @media screen and (max-width: 415px){
+    @media screen and (max-width: 420px){
       .video {
         height: 12rem;
-        width: 120%;
-        margin-left: -1.5rem;
+        width: 130%;
       }
-  }
+    }
+    @media screen and (max-width: 380px){
+      .video {
+        height: 12rem;
+        max-width: 150%;
+        margin-left: -2rem;
+      }
+    }
+    
 </style>
