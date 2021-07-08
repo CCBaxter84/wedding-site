@@ -15,7 +15,7 @@
   import Title from "@/components/Title.vue";
   import Loading from "@/components/Loading.vue";
   import EmbeddedVideo from "@/components/EmbeddedVideo.vue";
-
+  import { windowResize } from "@/mixins.js";
   export default {
     name: "Home",
     components: {
@@ -23,18 +23,13 @@
       Loading,
       EmbeddedVideo
     },
+    mixins: [windowResize],
     data() {
       return {
         item: {
           description: "The Clarks' Wedding Website"
         },
-        isLoading: false,
-        screenSize: []
-      }
-    },
-    computed: {
-      margin() {
-        return this.screenSize[0] < 415 ? "mx-1" : "mx-4";
+        isLoading: false
       }
     },
     async created() {
@@ -42,17 +37,6 @@
       const { data } = await axios.get("/api/home");
       this.item.url = data.getLink.url;
       this.isLoading = false;
-    },
-    mounted() {
-      window.addEventListener("resize", this.handleResize);
-    },
-    unmounted() {
-      window.removeEventListener("resize", this.handleResize);
-    },
-    methods: {
-      handleResize() {
-        this.screenSize = [window.innerWidth, window.innerHeight];
-      }
     }
   }
 </script>
