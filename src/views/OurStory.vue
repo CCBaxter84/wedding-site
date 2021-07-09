@@ -1,9 +1,9 @@
 <template>
   <main class='my-6 mx-3'>
     <Title title='Our Story'/>
-    <Pagination :items='items' v-if='isSmallScreen'/>
+    <Pagination :items='items' v-if='!isSmallScreen'/>
     <section v-else>
-      <article class='container my-6'>
+      <article v-for='item in items' :key='item.url' class='container my-6'>
         <p class='title has-text-primary is-3'>{{ item.title }}</p>
         <div class="my-6 is-flex is-justify-content-center photo" @click="redirectToPhoto">
           <b-image 
@@ -17,24 +17,7 @@
           <p class="is-size-5">{{ item.text }}</p>
         </div>
       </article>
-      <b-pagination
-        :items="items"
-        :total="total"
-        v-model="current"
-        :range-before="rangeBefore"
-        :range-after="rangeAfter"
-        :order="order"
-        :size="size"
-        :simple="isSimple"
-        :rounded="isRounded"
-        :per-page="perPage"
-        :icon-prev="prevIcon"
-        :icon-next="nextIcon"
-        aria-next-label='Next page'
-        aria-previous-label='Previous page'
-        aria-page-label='Page'
-        aria-current-label='Current page'
-      />
+      <br>
     </section>
   </main>
 </template>
