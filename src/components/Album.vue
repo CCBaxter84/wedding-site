@@ -1,7 +1,10 @@
 <template>
     <section>
-        <article class="container my-5">
-            <div class="mt-3 is-flex is-justify-content-center is-hoverable" @click="redirectToSource">
+        <article class="container my-5 is-fullwidth">
+            <div 
+                class="mt-3 is-flex is-justify-content-center is-hoverable" 
+                @click="redirectToSource"
+            >
                 <Loading v-if="isFetching"/>
                 <b-image 
                     v-if="!isFetching && !isVideo"
@@ -41,17 +44,17 @@
     import { cacheLastPage } from '@/helpers';
     import Loading from '@/components/Loading';
     import EmbeddedVideo from '@/components/EmbeddedVideo';
+    import getScreenSize from '@/mixins/getScreenSize';
 
     export default {
         name: 'Album',
         components: { Loading, EmbeddedVideo },
         props: ['items', 'isFetching'],
+        mixins: [getScreenSize],
         data() {
             return {
                 current: 1,
                 perPage: 1,
-                rangeBefore: 3,
-                rangeAfter: 3,
                 order: 'is-centered',
                 size: '',
                 isSimple: false,
@@ -75,6 +78,12 @@
                         url: ''
                     }
                 }
+            },
+            rangeBefore() {
+                return this.setPagination();
+            },
+            rangeAfter() {
+                return this.setPagination();
             }
         },
         watch: {
@@ -87,6 +96,9 @@
             redirectToSource() {
                 localStorage.setItem('last-page', this.current);
                 window.location.href = this.item.url;
+            },
+            setPagination() {
+                return this.screenSize[0] < 415 ? 1 : 3;
             }
         },
         mounted() {

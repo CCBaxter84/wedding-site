@@ -1,5 +1,5 @@
 <template>
-  <main class='m-3'>
+  <main :class='margin'>
     <Title :title='name'/>
     <Album :items='items' :isFetching='isFetching'/>
   </main>
@@ -9,15 +9,22 @@
   import axios from 'axios';
   import Title from '@/components/Title.vue';
   import Album from '@/components/Album.vue';
+  import getScreenSize from "@/mixins/getScreenSize";
 
   export default {
     name: 'AlbumWrapper',
     props: ['name'],
     components: { Title, Album },
+    mixins: [getScreenSize],
     data() {
       return {
         items: [],
         isFetching: false
+      }
+    },
+    computed: {
+      margin() {
+        return this.screenSize[0] < 415 ? "m-0" : "m-3";
       }
     },
     async created() {

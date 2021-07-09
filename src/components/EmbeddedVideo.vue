@@ -46,7 +46,7 @@
       .video {
         height: 12rem;
         max-width: 150%;
-        margin-left: -2.1rem;
+        margin-left: -2.2rem;
       }
     }
 </style>

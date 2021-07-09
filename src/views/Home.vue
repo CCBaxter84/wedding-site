@@ -16,6 +16,7 @@
   import Loading from "@/components/Loading.vue";
   import EmbeddedVideo from "@/components/EmbeddedVideo.vue";
   import getScreenSize from "@/mixins/getScreenSize";
+  
   export default {
     name: "Home",
     components: {
