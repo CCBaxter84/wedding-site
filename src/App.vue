@@ -39,7 +39,7 @@
     margin-left: -50rem;
     margin-top: -50rem;
     position: absolute;
-    width: 200%;
+    width: 1000%;
   }
 
   img {
@@ -48,7 +48,7 @@
   }
 
   .img-load {
-      animation: slide-in 300ms ease-in-out;
+    animation: slide-in 300ms ease-in-out;
   }
 
   .loading {
@@ -58,21 +58,25 @@
   .is-full-width {
     width: 100%;
   }
+  /* Hover effect for photos */
+  figure:hover {
+    cursor: pointer;
+  }
 
   /* Animation for photo albums */
   @keyframes slide-in {
-      0% {
-          opacity: 0;
-      }
-      100% {
-          opacity: 1;
-      }
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   /* Mobile Device Styling */
   @media screen and (max-width: 415px){
-      .section:before {
-        margin-left: -20rem;
-        margin-top: -20rem;
-      }
+    .section:before {
+      margin-left: -20rem;
+      margin-top: -20rem;
+    }
   }
 </style>

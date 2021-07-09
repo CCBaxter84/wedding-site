@@ -2,38 +2,23 @@
   <main class='my-6 mx-3'>
     <Title title='Our Story'/>
     <Pagination :items='items' v-if='!isSmallScreen'/>
-    <section v-else>
-      <article v-for='item in items' :key='item.url' class='container my-6'>
-        <p class='title has-text-primary is-3'>{{ item.title }}</p>
-        <div class="my-6 is-flex is-justify-content-center photo" @click="redirectToPhoto">
-          <b-image 
-            :src='item.url'
-            :srcset="sourceSet"
-            :alt='item.description'
-            class="img-load"
-          />
-        </div>
-        <div class="margin">
-          <p class="is-size-5">{{ item.text }}</p>
-        </div>
-      </article>
-      <br>
-    </section>
+    <Scroll v-else :items='items' :isFetching='false'/>
   </main>
 </template>
 
 <script>
-  import Pagination from '@/components/Pagination.vue'
-  import Title from '@/components/Title.vue'
+  import Pagination from '@/components/Pagination.vue';
+  import Title from '@/components/Title.vue';
+  import Scroll from '@/components/Scroll.vue';
   import getScreenSize from "@/mixins/getScreenSize";
   
   export default {
     name: 'OurStory',
-    components: { Pagination, Title },
+    components: { Pagination, Title, Scroll },
     mixins: [ getScreenSize ],
     data() {
       return {
-        items: [],
+        items: []
       }
     },
     computed: {
@@ -84,9 +69,6 @@
 </script>
 
 <style scoped>
-  figure:hover {
-    cursor: pointer;
-  }
   .margin {
       margin: 0 auto;
       width: 75%;

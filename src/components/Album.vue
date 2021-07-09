@@ -45,12 +45,13 @@
     import Loading from '@/components/Loading';
     import EmbeddedVideo from '@/components/EmbeddedVideo';
     import getScreenSize from '@/mixins/getScreenSize';
+    import { checkVideo } from '@/mixins';
 
     export default {
         name: 'Album',
         components: { Loading, EmbeddedVideo },
-        props: ['items', 'isFetching'],
-        mixins: [getScreenSize],
+        props: [ 'items', 'isFetching' ],
+        mixins: [ getScreenSize, checkVideo ],
         data() {
             return {
                 current: 1,
@@ -89,7 +90,7 @@
         watch: {
             item: function(value) {
                 const { url } = value;
-                url.includes('Videos') ? this.isVideo = true : this.isVideo = false;
+                this.checkVideo(url);
             }
         },  
         methods: {
@@ -103,6 +104,7 @@
         },
         mounted() {
             cacheLastPage(this);
+            this.checkVideo(this.item.url);
         }
     }
 </script>

@@ -1,7 +1,12 @@
 <template>
   <main :class='margin'>
     <Title :title='name'/>
-    <Album :items='items' :isFetching='isFetching'/>
+    <Scroll 
+      v-if='isSmallScreen && name === "Videos"'
+      :isFetching='isFetching'
+      :items='items'
+    />
+    <Album v-else :items='items' :isFetching='isFetching'/>
   </main>
 </template>
 
@@ -9,12 +14,13 @@
   import axios from 'axios';
   import Title from '@/components/Title.vue';
   import Album from '@/components/Album.vue';
-  import getScreenSize from "@/mixins/getScreenSize";
+  import Scroll from '@/components/Scroll.vue';
+  import getScreenSize from '@/mixins/getScreenSize';
 
   export default {
     name: 'AlbumWrapper',
     props: ['name'],
-    components: { Title, Album },
+    components: { Title, Album, Scroll },
     mixins: [ getScreenSize ],
     data() {
       return {
@@ -24,7 +30,10 @@
     },
     computed: {
       margin() {
-        return this.screenSize[0] < 415 ? "m-0" : "m-3";
+        return this.isSmallScreen ? "m-0" : "m-3";
+      },
+      isSmallScreen() {
+        return this.screenSize[0] < 415;
       }
     },
     async created() {

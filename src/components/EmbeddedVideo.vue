@@ -5,7 +5,7 @@
             class="video" 
             :src="item.url" 
             frameborder="0"
-            allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
         />
     </section>
@@ -23,6 +23,7 @@
         max-height: 100%;
         position: relative;
         width: 75%;
+        height: 30rem;
     }
     /* Mobile Device Styling */
     @media screen and (max-width: 1020px){

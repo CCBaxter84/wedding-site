@@ -15,6 +15,7 @@
   import Title from "@/components/Title.vue";
   import Loading from "@/components/Loading.vue";
   import EmbeddedVideo from "@/components/EmbeddedVideo.vue";
+  import { isSmallScreen } from "@/mixins";
   import getScreenSize from "@/mixins/getScreenSize";
   
   export default {
@@ -24,7 +25,7 @@
       Loading,
       EmbeddedVideo
     },
-    mixins: [getScreenSize],
+    mixins: [ getScreenSize, isSmallScreen ],
     data() {
       return {
         item: {
@@ -35,7 +36,7 @@
     },
     computed: {
       margin() {
-        return this.screenSize[0] < 415 ? "mx-1" : "mx-4";
+        return this.isSmallScreen ? "mx-1" : "mx-4";
       },
     },
     async created() {

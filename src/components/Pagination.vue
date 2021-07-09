@@ -36,13 +36,12 @@
 </template>
 
 <script>
-  import { cacheLastPage } from '@/helpers';
-  import redirectToPhoto from "@/mixins/redirectToPhoto";
+  import { redirectToPhoto, cacheLastPage } from "@/mixins";
 
   export default {
     name: 'Pagination',
     props: ['items'],
-    mixins: [redirectToPhoto],
+    mixins: [ redirectToPhoto, cacheLastPage ],
     data() {
       return {
         total: 6,
@@ -68,7 +67,7 @@
       }
     },
     mounted() {
-      cacheLastPage(this);
+      this.cacheLastPage(this);
     }
   }
 </script>
