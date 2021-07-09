@@ -15,7 +15,7 @@
   import Title from "@/components/Title.vue";
   import Loading from "@/components/Loading.vue";
   import EmbeddedVideo from "@/components/EmbeddedVideo.vue";
-  import { windowResize } from "@/mixins.js";
+  import getScreenSize from "@/mixins/getScreenSize";
   export default {
     name: "Home",
     components: {
@@ -23,7 +23,7 @@
       Loading,
       EmbeddedVideo
     },
-    mixins: [windowResize],
+    mixins: [getScreenSize],
     data() {
       return {
         item: {
@@ -31,6 +31,11 @@
         },
         isLoading: false
       }
+    },
+    computed: {
+      margin() {
+        return this.screenSize[0] < 415 ? "mx-1" : "mx-4";
+      },
     },
     async created() {
       this.isLoading = true;
