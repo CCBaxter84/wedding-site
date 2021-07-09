@@ -15,7 +15,7 @@
     name: 'AlbumWrapper',
     props: ['name'],
     components: { Title, Album },
-    mixins: [getScreenSize],
+    mixins: [ getScreenSize ],
     data() {
       return {
         items: [],
