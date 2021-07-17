@@ -6,6 +6,11 @@
       :isFetching="isFetching"
       :items="items"
     />
+    <VideoThumbs 
+      v-else-if="name === 'Videos'"
+      :isFetching="isFetching"
+      :items="items"
+    />
     <Album v-else :items="items" :isFetching="isFetching"/>
   </main>
 </template>
@@ -15,13 +20,14 @@
   import Title from "@/components/Title.vue";
   import Album from "@/components/Album.vue";
   import Scroll from "@/components/Scroll.vue";
+  import VideoThumbs from "@/components/VideoThumbs.vue";
   import getScreenSize from "@/mixins/getScreenSize";
   import http from "@/http";
 
   export default {
     name: "AlbumWrapper",
     props: ["name"],
-    components: { Title, Album, Scroll },
+    components: { Title, Album, Scroll, VideoThumbs },
     mixins: [ getScreenSize ],
     data() {
       return {

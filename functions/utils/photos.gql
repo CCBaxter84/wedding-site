@@ -2,6 +2,7 @@ type Link {
     url: String!
     description: String!
     album: String!
+    thumbnail: String
 }
 
 type Query {

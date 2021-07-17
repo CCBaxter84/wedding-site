@@ -10,13 +10,24 @@ const makeGetQuery = function(name) {
   }`
 }
 
+const videoQuery = `query {
+  getAllAlbumLinks(_size: 600, album: "Videos") {
+    data {
+      _id,
+      url,
+      description,
+      thumbnail
+    }
+  }
+}`
+
 const GET_CEREMONY_LINKS = makeGetQuery("Ceremony");
 const GET_COUPLE_LINKS = makeGetQuery("Couple");
 const GET_ENGAGEMENT_LINKS = makeGetQuery("Engagement");
 const GET_FAMILY_LINKS = makeGetQuery("Family");
 const GET_GETTING_READY_LINKS = makeGetQuery("GettingReady");
 const GET_RECEPTION_LINKS = makeGetQuery("Reception");
-const GET_VIDEOS_LINKS = makeGetQuery("Videos");
+const GET_VIDEOS_LINKS = videoQuery;
 const ERROR_MESSAGE = 'Something went wrong'
 
 module.exports = {
