@@ -14,12 +14,9 @@
                 @click="toggleShowModal"
                 :name="index"
             />
-            
         </article>
         <b-modal v-model="showModal">
-            <section class="card modal-content">
-                <EmbeddedVideo :item="item"/>
-            </section>
+            <EmbeddedVideo :item="item"/>
         </b-modal>
   </section>
 </template>
@@ -53,10 +50,6 @@
     }
     img:hover {
         cursor: pointer;
-    }
-    .modal-content {
-        background-color: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
     }
 </style>
 

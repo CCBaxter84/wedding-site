@@ -1,13 +1,9 @@
 <template>
   <main :class="margin">
     <Title :title="name"/>
-    <Scroll 
-      v-if="isSmallScreen && name === 'Videos'"
-      :isFetching="isFetching"
-      :items="items"
-    />
+
     <VideoThumbs 
-      v-else-if="name === 'Videos'"
+      v-if="name === 'Videos'"
       :isFetching="isFetching"
       :items="items"
     />
@@ -19,7 +15,7 @@
   import { mapMutations } from "vuex";
   import Title from "@/components/Title.vue";
   import Album from "@/components/Album.vue";
-  import Scroll from "@/components/Scroll.vue";
+  //import Scroll from "@/components/Scroll.vue";
   import VideoThumbs from "@/components/VideoThumbs.vue";
   import getScreenSize from "@/mixins/getScreenSize";
   import http from "@/http";
@@ -27,7 +23,7 @@
   export default {
     name: "AlbumWrapper",
     props: ["name"],
-    components: { Title, Album, Scroll, VideoThumbs },
+    components: { Title, Album, VideoThumbs },
     mixins: [ getScreenSize ],
     data() {
       return {
