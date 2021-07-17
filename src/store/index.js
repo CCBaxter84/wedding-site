@@ -5,8 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isFetching: false
   },
   mutations: {
+    setIsFetching(state, payload) {
+      state.isFetching = payload;
+    }
   },
   actions: {
   },

@@ -104,7 +104,7 @@
         },
         mounted() {
             cacheLastPage(this);
-            this.checkVideo(this.item.url);
+            //this.checkVideo(this.item.url);
         }
     }
 </script>
