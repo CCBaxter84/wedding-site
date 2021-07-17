@@ -2,21 +2,61 @@
   <section 
     class="container is-flex is-flex-wrap-wrap is-justify-content-space-around is-align-items-center mx-6">
         <article 
-            v-for="item in items" 
+            v-for="(item, index) in items" 
             :key="item.id"
-            class="mx-3 mb-6"
+            class="my-6 mx-4 is-flex is-flex-direction-column is-justify-content-flex-end thumbnail"
         >
-            <p>{{ item.description }}</p>
-            <img src="./Highlights_thumb.jpeg" alt="">
-      </article>
+            <p class="title has-text-primary is-4">{{ item.description }}</p>
+            <img 
+                :src="item.thumbnail" 
+                :alt="item.description"
+                class="is-align-self-flex-end"
+                @click="toggleShowModal"
+                :name="index"
+            />
+            
+        </article>
+        <b-modal v-model="showModal">
+            <section class="card modal-content">
+                <EmbeddedVideo :item="item"/>
+            </section>
+        </b-modal>
   </section>
 </template>
 
 <script>
+    import EmbeddedVideo from '@/components/EmbeddedVideo';
     export default {
         name: "VideoThumbs",
-        props: ["isFetching", "items"]
+        props: ["isFetching", "items"],
+        components: { EmbeddedVideo },
+        data() {
+            return {
+                showModal: false,
+                item: {}
+            }
+        },
+        methods: {
+            toggleShowModal(event) {
+                const { name } = event.target;
+                this.showModal = !this.showModal;
+                this.item = this.items[name];
+            }
+        }
     }
 </script>
 
+<style scoped>
+    .thumbnail {
+        height: 18rem;
+        width: 8rem;
+    }
+    img:hover {
+        cursor: pointer;
+    }
+    .modal-content {
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+    }
+</style>
 
