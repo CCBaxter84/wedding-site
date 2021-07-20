@@ -43,14 +43,14 @@
 <script>
     import Loading from '@/components/Loading';
     import EmbeddedVideo from '@/components/EmbeddedVideo';
-    import getScreenSize from '@/mixins/getScreenSize';
+    import useScreenSize from '@/mixins/useScreenSize';
     import { checkVideo, cacheLastPage } from '@/mixins';
 
     export default {
         name: 'Album',
         components: { Loading, EmbeddedVideo },
         props: [ 'items', 'isFetching' ],
-        mixins: [ getScreenSize, checkVideo, cacheLastPage ],
+        mixins: [ useScreenSize, checkVideo, cacheLastPage ],
         data() {
             return {
                 current: 1,
@@ -102,8 +102,7 @@
             }
         },
         mounted() {
-            cacheLastPage(this);
-            //this.checkVideo(this.item.url);
+            this.cacheLastPage(this);
         }
     }
 </script>

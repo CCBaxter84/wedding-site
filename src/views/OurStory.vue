@@ -10,12 +10,12 @@
   import Pagination from '@/components/Pagination.vue';
   import Title from '@/components/Title.vue';
   import Scroll from '@/components/Scroll.vue';
-  import getScreenSize from "@/mixins/getScreenSize";
+  import useScreenSize from "@/mixins/useScreenSize";
   
   export default {
     name: 'OurStory',
     components: { Pagination, Title, Scroll },
-    mixins: [ getScreenSize ],
+    mixins: [ useScreenSize ],
     data() {
       return {
         items: []

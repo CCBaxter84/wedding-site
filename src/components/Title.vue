@@ -5,13 +5,13 @@
 </template>
 
 <script>
-  import getScreenSize from "@/mixins/getScreenSize";
+  import useScreenSize from "@/mixins/useScreenSize";
   export default {
       name: 'Title',
       props: {
         title: String
       },
-      mixins: [getScreenSize],
+      mixins: [ useScreenSize ],
       computed: {
         titleSize() {
           return this.screenSize[0] < 415 ? "is-3" : "is-1";

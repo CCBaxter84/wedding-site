@@ -1,4 +1,4 @@
-const getScreenSize = {
+const useScreenSize = {
     data: function() {
         return {
             screenSize: []
@@ -18,4 +18,4 @@ const getScreenSize = {
     }
 }
 
-export default getScreenSize;
+export default useScreenSize;

@@ -1,7 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils';
 import Buefy from 'buefy';
 
-export const titles = ['Home', 'Our Story', 'Engagement', 'Getting Ready', 'Ceremony', 'Couple', 'Family', 'Puppies', 'Reception', 'Videos'];
 export const routes = ['/', '/our-story', '/engagement', '/getting-ready', '/ceremony', '/couple', '/family', '/puppies', '/reception', '/videos'];
 
 export const createWrapper = (component, options = {}) => {

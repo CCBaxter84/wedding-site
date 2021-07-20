@@ -16,16 +16,15 @@
   import { mapMutations } from "vuex";
   import Title from "@/components/Title.vue";
   import Album from "@/components/Album.vue";
-  //import Scroll from "@/components/Scroll.vue";
   import VideoThumbs from "@/components/VideoThumbs.vue";
-  import getScreenSize from "@/mixins/getScreenSize";
+  import useScreenSize from "@/mixins/useScreenSize";
   import http from "@/http";
 
   export default {
     name: "AlbumWrapper",
     props: ["name"],
     components: { Title, Album, VideoThumbs },
-    mixins: [ getScreenSize ],
+    mixins: [ useScreenSize ],
     data() {
       return {
         items: []

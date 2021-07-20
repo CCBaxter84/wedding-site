@@ -16,7 +16,7 @@
   import Loading from "@/components/Loading.vue";
   import EmbeddedVideo from "@/components/EmbeddedVideo.vue";
   import { isSmallScreen } from "@/mixins";
-  import getScreenSize from "@/mixins/getScreenSize";
+  import useScreenSize from "@/mixins/useScreenSize";
   
   export default {
     name: "Home",
@@ -25,7 +25,7 @@
       Loading,
       EmbeddedVideo
     },
-    mixins: [ getScreenSize, isSmallScreen ],
+    mixins: [ useScreenSize, isSmallScreen ],
     data() {
       return {
         item: {
