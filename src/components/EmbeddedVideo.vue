@@ -26,7 +26,12 @@
     }
     @media screen and (max-width: 1020px){
         .video {
-            width: 95%;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 415px){
+        .video {
+            height: 10rem;
         }
     }
 </style>
