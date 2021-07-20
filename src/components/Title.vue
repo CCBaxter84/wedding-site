@@ -14,7 +14,7 @@
       mixins: [getScreenSize],
       computed: {
         titleSize() {
-          return this.screenSize[0] < 415 ? "is-3" : "is-2";
+          return this.screenSize[0] < 415 ? "is-3" : "is-1";
         }
       }
   }

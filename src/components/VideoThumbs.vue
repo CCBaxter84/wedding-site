@@ -1,6 +1,6 @@
 <template>
   <section 
-    class="container is-flex is-flex-wrap-wrap is-justify-content-space-around is-align-items-center mx-6">
+    class="container is-full-width is-flex is-flex-wrap-wrap is-justify-content-space-around is-align-items-center ">
         <article 
             v-for="(item, index) in items" 
             :key="item.id"
@@ -25,7 +25,7 @@
     import EmbeddedVideo from '@/components/EmbeddedVideo';
     export default {
         name: "VideoThumbs",
-        props: ["isFetching", "items"],
+        props: ["isFetching", "items", "isSmallScreen"],
         components: { EmbeddedVideo },
         data() {
             return {

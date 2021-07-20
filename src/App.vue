@@ -3,7 +3,7 @@
     class='hero is-primary is-bold is-fullheight has-text-primary has-text-centered'
   >
     <section class='hero-body'>
-      <section class='container is-fullwidth'>
+      <section class='container is-fullwidth is-flex is-justify-content-center'>
         <section class='section is-small'>
           <Header />
           <router-view />
@@ -24,6 +24,17 @@
 
 <style>
   .section {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.75rem;
+    width: 70%;
+  }
+  @media screen and (max-width: 1020px){
+        .section {
+            width: 95%;
+        }
+    }
+/*
+  .section {
     border-radius: 0.75rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -41,6 +52,7 @@
     position: absolute;
     width: 1000%;
   }
+*/
 
   img {
     max-height: 700px;
@@ -73,10 +85,10 @@
     }
   }
   /* Mobile Device Styling */
-  @media screen and (max-width: 415px){
+  /*@media screen and (max-width: 415px){
     .section:before {
       margin-left: -20rem;
       margin-top: -20rem;
     }
-  }
+  }*/
 </style>

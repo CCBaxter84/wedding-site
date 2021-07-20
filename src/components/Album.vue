@@ -41,17 +41,16 @@
 </template>
 
 <script>
-    import { cacheLastPage } from '@/helpers';
     import Loading from '@/components/Loading';
     import EmbeddedVideo from '@/components/EmbeddedVideo';
     import getScreenSize from '@/mixins/getScreenSize';
-    import { checkVideo } from '@/mixins';
+    import { checkVideo, cacheLastPage } from '@/mixins';
 
     export default {
         name: 'Album',
         components: { Loading, EmbeddedVideo },
         props: [ 'items', 'isFetching' ],
-        mixins: [ getScreenSize, checkVideo ],
+        mixins: [ getScreenSize, checkVideo, cacheLastPage ],
         data() {
             return {
                 current: 1,

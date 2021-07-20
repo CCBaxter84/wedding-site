@@ -6,6 +6,7 @@
       v-if="name === 'Videos'"
       :isFetching="isFetching"
       :items="items"
+      :isSmallScreen="isSmallScreen"
     />
     <Album v-else :items="items" :isFetching="isFetching"/>
   </main>
