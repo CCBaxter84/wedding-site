@@ -18,14 +18,14 @@
 </template>
 
 <script>
-    import Loading from '@/components/Loading';
-    import { redirectToPhoto } from "@/mixins";
+    import Loading from "@/components/Loading";
+    import useLocalStorageForMedia from "@/mixins/useScreenSize";
 
     export default {
         name: "Scroll",
         components: { Loading },
         props: [ "items", "isFetching" ],
-        mixins: [ redirectToPhoto ],
+        mixins: [ useLocalStorageForMedia ],
         methods: {
             isVideo(url) {
                 return url.includes("Video");

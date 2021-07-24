@@ -6,32 +6,6 @@ export const checkVideo = {
     }
 }
 
-export const redirectToPhoto = {
-    methods: {
-        redirectToPhoto(item) {
-          localStorage.setItem('last-page', this.current);
-          console.log(item)
-          if (this.item) {
-            window.location.href = this.item.url;
-          } else {
-            window.location.href = item.url;
-          }
-        }
-    }
-}
-
-export const cacheLastPage = {
-    methods: {
-        cacheLastPage() {
-            const lastPage = Number(localStorage.getItem('last-page'));
-            if (lastPage) {
-              this.current = lastPage;
-              localStorage.clear();
-            } 
-        }
-    }
-}
-
 export const isSmallScreen = {
     computed: {
         isSmallScreen() {

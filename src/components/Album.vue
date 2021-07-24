@@ -32,35 +32,36 @@
             :per-page="perPage"
             :icon-prev="prevIcon"
             :icon-next="nextIcon"
-            aria-next-label='Next page'
-            aria-previous-label='Previous page'
-            aria-page-label='Page'
+            aria-next-label="Next page"
+            aria-previous-label="Previous page"
+            aria-page-label="Page"
             aria-current-label='Current page'
         />
     </section>
 </template>
 
 <script>
-    import Loading from '@/components/Loading';
-    import EmbeddedVideo from '@/components/EmbeddedVideo';
-    import useScreenSize from '@/mixins/useScreenSize';
-    import { checkVideo, cacheLastPage } from '@/mixins';
+    import Loading from "@/components/Loading";
+    import EmbeddedVideo from "@/components/EmbeddedVideo";
+    import useScreenSize from "@/mixins/useScreenSize";
+    import useLocalStorageForMedia from "@/mixins/useLocalStorageForMedia";
+    import { checkVideo } from "@/mixins";
 
     export default {
-        name: 'Album',
+        name: "Album",
         components: { Loading, EmbeddedVideo },
-        props: [ 'items', 'isFetching' ],
-        mixins: [ useScreenSize, checkVideo, cacheLastPage ],
+        props: [ "items", "isFetching" ],
+        mixins: [ useScreenSize, useLocalStorageForMedia, checkVideo ],
         data() {
             return {
                 current: 1,
                 perPage: 1,
-                order: 'is-centered',
-                size: '',
+                order: "is-centered",
+                size: "",
                 isSimple: false,
                 isRounded: false,
-                prevIcon: 'chevron-left',
-                nextIcon: 'chevron-right',
+                prevIcon: "chevron-left",
+                nextIcon: "chevron-right",
                 isVideo: false
             }
         },
@@ -74,8 +75,8 @@
                     return this.items[index];
                 } else {
                     return {
-                        _id: '',
-                        url: ''
+                        _id: "",
+                        url: ""
                     }
                 }
             },
@@ -94,7 +95,7 @@
         },  
         methods: {
             redirectToSource() {
-                localStorage.setItem('last-page', this.current);
+                localStorage.setItem("last-page", this.current);
                 window.location.href = this.item.url;
             },
             setPagination() {
@@ -102,7 +103,8 @@
             }
         },
         mounted() {
-            this.cacheLastPage(this);
+            this.setRefreshEventListener();
+            this.setToLastPage();
         }
     }
 </script>

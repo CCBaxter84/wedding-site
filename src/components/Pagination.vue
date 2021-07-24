@@ -36,12 +36,12 @@
 </template>
 
 <script>
-  import { redirectToPhoto, cacheLastPage } from "@/mixins";
+  import useLocalStorageForMedia from "@/mixins/useLocalStorageForMedia";
 
   export default {
     name: 'Pagination',
     props: ['items'],
-    mixins: [ redirectToPhoto, cacheLastPage ],
+    mixins: [ useLocalStorageForMedia ],
     data() {
       return {
         total: 6,
@@ -67,7 +67,8 @@
       }
     },
     mounted() {
-      this.cacheLastPage(this);
+        this.setRefreshEventListener();
+        this.setToLastPage();
     }
   }
 </script>

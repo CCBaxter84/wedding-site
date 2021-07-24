@@ -36,3 +36,7 @@
     from = "/api/puppies"
     to = "/.netlify/functions/getAllLinks"
     status = 200
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
