@@ -17,6 +17,7 @@
   import EmbeddedVideo from "@/components/EmbeddedVideo.vue";
   import { isSmallScreen } from "@/mixins";
   import useScreenSize from "@/mixins/useScreenSize";
+  import useLocalStorageForMedia from "@/mixins/useLocalStorageForMedia";
   
   export default {
     name: "Home",
@@ -25,7 +26,7 @@
       Loading,
       EmbeddedVideo
     },
-    mixins: [ useScreenSize, isSmallScreen ],
+    mixins: [ useScreenSize, isSmallScreen, useLocalStorageForMedia ],
     data() {
       return {
         item: {
@@ -44,6 +45,12 @@
       const { data } = await http.get("/getHomeVideoLink");
       this.item.url = data.getLink.url;
       this.isLoading = false;
+    },
+    mounted() {
+      this.cacheLastPage("home");
+    },
+    destroyed() {
+      localStorage.clear();
     }
   }
 </script>

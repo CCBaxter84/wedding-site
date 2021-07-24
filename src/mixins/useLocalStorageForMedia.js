@@ -1,7 +1,12 @@
 const useLocalStorageForMedia = {
     methods: {
-        cacheLastPage() {
-            localStorage.setItem("last-page", this.current);
+        cacheLastPage(path) {
+            if (path) {
+                localStorage.setItem("last-page", path);
+            } else {
+                localStorage.setItem("last-page", this.current);
+            }
+
         },
         redirectToPhoto(item) {
             this.cacheLastPage();
@@ -21,7 +26,20 @@ const useLocalStorageForMedia = {
             }
         },
         setToLastPage() {
-            const lastPage = Number(localStorage.getItem("last-page"));
+            let lastPage;
+            if (localStorage.getItem("last-page") === "home") {
+                localStorage.clear();
+                this.$router.push({ path: "/" });
+                return;
+            }
+
+            if (localStorage.getItem("last-page") === "videos") {
+                localStorage.clear();
+                this.$router.push({ path: "/videos" });
+                return;
+            }
+            
+            lastPage = Number(localStorage.getItem("last-page"));
             if (lastPage) {
               this.current = lastPage;
               localStorage.clear();
