@@ -27,13 +27,13 @@ const useLocalStorageForMedia = {
         },
         setToLastPage() {
             let lastPage;
-            if (localStorage.getItem("last-page") === "home") {
+            if (localStorage.getItem("last-page") === "Home") {
                 localStorage.clear();
                 this.$router.push({ path: "/" });
                 return;
             }
 
-            if (localStorage.getItem("last-page") === "videos") {
+            if (localStorage.getItem("last-page") === "Videos") {
                 localStorage.clear();
                 this.$router.push({ path: "/videos" });
                 return;

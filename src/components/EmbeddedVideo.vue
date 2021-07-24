@@ -6,14 +6,29 @@
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-        />
+            ref="iframe"
+        /> 
     </section>
 </template>
 
 <script>
     export default {
         name: 'EmbeddedVideo',
-        props: ['item']
+        props: ['item'],
+        mounted() {
+            this.$refs.iframe.addEventListener("webkitfullscreenchange", () => {
+                if (!document.fullscreenElement) {
+                    localStorage.setItem("last-item", this.$route.name);
+                }
+            });
+        },
+        beforeDestroy() {
+            this.$refs.iframe.addEventListener("webkitfullscreenchange", () => {
+                if (!document.fullscreenElement) {
+                    localStorage.setItem("last-item", this.$route.name);
+                }
+            });
+        }
     }
 </script>
 
