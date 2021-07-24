@@ -1,12 +1,12 @@
 <template>
     <section>
-      <article class='container my-6'>
-        <p class='title has-text-primary is-3'>{{ item.title }}</p>
+      <article class="container my-6">
+        <Title :title="item.title"/>
         <div class="my-6 is-flex is-justify-content-center photo" @click="redirectToPhoto">
           <b-image 
-            :src='item.url'
+            :src="item.url"
             :srcset="sourceSet"
-            :alt='item.description'
+            :alt="item.description"
             class="img-load"
           />
         </div>
@@ -27,20 +27,22 @@
         :per-page="perPage"
         :icon-prev="prevIcon"
         :icon-next="nextIcon"
-        aria-next-label='Next page'
-        aria-previous-label='Previous page'
-        aria-page-label='Page'
-        aria-current-label='Current page'
+        aria-next-label="Next page"
+        aria-previous-label="Previous page"
+        aria-page-label="Page"
+        aria-current-label="Current page"
       />
     </section>
 </template>
 
 <script>
   import useLocalStorageForMedia from "@/mixins/useLocalStorageForMedia";
+  import Title from "@/components/Title.vue";
 
   export default {
-    name: 'Pagination',
-    props: ['items'],
+    name: "Pagination",
+    props: ["items"],
+    components: { Title },
     mixins: [ useLocalStorageForMedia ],
     data() {
       return {
@@ -49,12 +51,12 @@
         perPage: 1,
         rangeBefore: 5,
         rangeAfter: 5,
-        order: 'is-centered',
-        size: '',
+        order: "is-centered",
+        size: "",
         isSimple: false,
         isRounded: false,
-        prevIcon: 'chevron-left',
-        nextIcon: 'chevron-right'
+        prevIcon: "chevron-left",
+        nextIcon: "chevron-right"
       }
     },
     computed: {

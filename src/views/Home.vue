@@ -1,6 +1,6 @@
 <template>
   <main :class="margin">
-    <Title title="Welcome"/>
+    <Title title="The Clarks' Wedding"/>
      <article class="container my-5">
        <div class="mt-3 is-flex is-justify-content-center">
           <Loading v-if="isLoading"/>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import axios from "axios";
+  import http from "@/http";
   import Title from "@/components/Title.vue";
   import Loading from "@/components/Loading.vue";
   import EmbeddedVideo from "@/components/EmbeddedVideo.vue";
@@ -41,7 +41,7 @@
     },
     async created() {
       this.isLoading = true;
-      const { data } = await axios.get("/api/home");
+      const { data } = await http.get("/getHomeVideoLink");
       this.item.url = data.getLink.url;
       this.isLoading = false;
     }
