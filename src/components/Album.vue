@@ -105,6 +105,9 @@
         mounted() {
             this.setRefreshEventListener();
             this.setToLastPage();
+        },
+        beforeUnmount() {
+            this.unsetRefreshEventListener();
         }
     }
 </script>

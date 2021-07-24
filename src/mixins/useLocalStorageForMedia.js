@@ -13,7 +13,10 @@ const useLocalStorageForMedia = {
         },
         setRefreshEventListener() {
             const self = this;
-            window.onbeforeunload = function() {
+            /* window.onbeforeunload = () => {
+                self.cacheLastPage();
+            } */
+            window.onpagehide = () => {
                 self.cacheLastPage();
             }
         },
@@ -23,7 +26,16 @@ const useLocalStorageForMedia = {
               this.current = lastPage;
               localStorage.clear();
             } 
-        }
+        },
+        unsetRefreshEventListener() {
+            const self = this;
+            /* window.removeEventListener("beforeunload", () => {
+                self.cacheLastPage();
+            }); */
+            window.removeEventListener("pagehide", () => {
+                self.cacheLastPage();
+            });
+        },
     }
 }
 
