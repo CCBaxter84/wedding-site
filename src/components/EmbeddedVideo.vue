@@ -1,13 +1,21 @@
 <template>
     <section class="is-flex-direction-column is-full-width" >
-        <iframe
+        <video
+            class="video"
+            :src="item.url" 
+            type="video/mp4"
+            ref="video"
+            autoplay
+            controls
+        />
+        <!-- <iframe
             class="video" 
             :src="item.url" 
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
             ref="iframe"
-        /> 
+        /> -->
     </section>
 </template>
 
@@ -18,14 +26,14 @@
         mounted() {
             this.$refs.iframe.addEventListener("webkitfullscreenchange", () => {
                 if (!document.fullscreenElement) {
-                    localStorage.setItem("last-item", this.$route.name);
+                    localStorage.setItem("last-page", this.$route.name);
                 }
             });
         },
         beforeDestroy() {
             this.$refs.iframe.addEventListener("webkitfullscreenchange", () => {
                 if (!document.fullscreenElement) {
-                    localStorage.setItem("last-item", this.$route.name);
+                    localStorage.setItem("last-page", this.$route.name);
                 }
             });
         }
