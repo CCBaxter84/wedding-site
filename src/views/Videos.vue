@@ -11,6 +11,7 @@
     components: { AlbumWrapper },
     mixins: [ useLocalStorageForMedia ],
     mounted() {
+      localStorage.clear();
       this.cacheLastPage("Videos");
     },
     destroyed() {

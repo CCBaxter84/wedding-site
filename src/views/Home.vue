@@ -47,6 +47,7 @@
       this.isLoading = false;
     },
     mounted() {
+      localStorage.clear();
       this.cacheLastPage("Home");
     },
     destroyed() {
