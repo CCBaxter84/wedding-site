@@ -8,7 +8,7 @@ const useScreenSize = {
         this.getScreenSize();
         window.addEventListener("resize", this.getScreenSize);
       },
-    unmounted() {
+    destroyed() {
         window.removeEventListener("resize", this.getScreenSize);
     },
     methods: {

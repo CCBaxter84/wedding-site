@@ -72,8 +72,9 @@
         this.setRefreshEventListener();
         this.setToLastPage();
     },
-    beforeUnmount() {
+    beforeDestroy() {
         this.unsetRefreshEventListener();
+        localStorage.clear();
     }
   }
 </script>
